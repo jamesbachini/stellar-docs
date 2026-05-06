@@ -1,141 +1,129 @@
-import React, { type ReactNode } from 'react';
-import clsx from 'clsx';
-import Heading from '@theme/Heading';
-import Link from '@docusaurus/Link';
-import styles from './styles.module.css';
-import Translate, {translate} from '@docusaurus/Translate';
+import React, { type ReactNode } from "react";
+import Heading from "@theme/Heading";
+import Link from "@docusaurus/Link";
+import Translate, { translate } from "@docusaurus/Translate";
+import styles from "./styles.module.css";
 
 type WayfindingItem = {
   title: string;
   description: ReactNode;
-  image: string;
-  link: ReactNode;
-}
-
-export const learnMoreLink = (target: string) => (
-  <Link to={target}>
-    <Translate
-      id='component.Homepage.LearnMoreButton.Text'
-      description='The text that will be displayed on the "Learn More" buttons'>
-      Learn More
-    </Translate>
-  </Link>
-)
+  linkLabel: ReactNode;
+  link: string;
+  icon: string;
+};
 
 const WayfindingWays: WayfindingItem[] = [
   {
     title: translate({
-      message: 'Asset Issuers',
-      id: 'components.WayfindingBoxes.AssetIssuers.Title',
+      message: "Ship a Smart Contract",
+      id: "components.WayfindingBoxes.SmartContractDevelopers.Title",
     }),
-    image: require('@site/static/icons/stellar-101.png').default,
+    icon: "cube",
     description: (
       <Translate
-        id='components.WayfindingBoxes.AssetIssuers.Description'
-        description='Short, punchy description for this "wayfinding box" on the homepage.'>
-        Issue an asset or create a custom smart contract token.
+        id="components.WayfindingBoxes.SmartContractDevelopers.Description"
+        description="Short description for a popular path card on the homepage."
+      >
+        Install the toolchain, compile Wasm, deploy to Testnet, and learn the
+        contract model from the ground up.
       </Translate>
     ),
-    link: learnMoreLink("/docs/tokens/quickstart"),
+    linkLabel: (
+      <Translate id="components.WayfindingBoxes.SmartContractDevelopers.Link">
+        Start contracts
+      </Translate>
+    ),
+    link: "/docs/build/smart-contracts/getting-started",
   },
   {
     title: translate({
-      message: 'Smart Contract Developers',
-      id: 'components.WayfindingBoxes.SmartContractDevelopers.Title'
+      message: "Build an App or Wallet",
+      id: "components.WayfindingBoxes.Applications.Title",
     }),
-    image: require('@site/static/icons/contract.png').default,
+    icon: "mobile",
     description: (
       <Translate
-        id='components.WayfindingBoxes.SmartContractDevelopers.Description'
-        description='Short, punchy description for this "wayfinding box" on the homepage.'>
-        Write smart contracts on the Stellar network.
+        id="components.WayfindingBoxes.Applications.Description"
+        description="Short description for a popular path card on the homepage."
+      >
+        Explore frontend, wallet, passkey, and example-app documentation to
+        assemble a complete user experience.
       </Translate>
     ),
-    link: learnMoreLink("/docs/build/smart-contracts/getting-started"),
+    linkLabel: (
+      <Translate id="components.WayfindingBoxes.Applications.Link">
+        Start apps
+      </Translate>
+    ),
+    link: "/docs/build/apps/overview",
   },
   {
     title: translate({
-      message: 'Ramps (Anchors)',
-      id: 'components.WayfindingBoxes.RampsAnchors.Title'
+      message: "Integrate Real-Time Data",
+      id: "components.WayfindingBoxes.Data.Title",
     }),
-    image: require('@site/static/icons/issue-assets.png').default,
+    icon: "bolt",
     description: (
       <Translate
-        id='components.WayfindingBoxes.RampsAnchors.Description'
-        description='Short, punchy description for this "wayfinding box" on the homepage.'>
-        Learn about and set up an anchor.
+        id="components.WayfindingBoxes.Data.Description"
+        description="Short description for a popular path card on the homepage."
+      >
+        Use Stellar RPC for transaction submission, simulation, event retrieval,
+        and contract-related app workflows.
       </Translate>
     ),
-    link: learnMoreLink("/docs/learn/fundamentals/anchors"),
+    linkLabel: (
+      <Translate id="components.WayfindingBoxes.Data.Link">Use RPC</Translate>
+    ),
+    link: "/docs/data/apis/rpc",
   },
   {
     title: translate({
-      message: 'Applications',
-      id: 'components.WayfindingBoxes.Applications.Title',
+      message: "Issue and Manage Assets",
+      id: "components.WayfindingBoxes.AssetIssuers.Title",
     }),
-    image: require('@site/static/icons/build-applications.png').default,
+    icon: "wallet",
     description: (
       <Translate
-        id='components.WayfindingBoxes.Applications.Description'
-        description='Short, punchy description for this "wayfinding box" on the homepage.'>
-        Build a traditional wallet, dapp, or list Stellar assets on an exchange.
+        id="components.WayfindingBoxes.AssetIssuers.Description"
+        description="Short description for a popular path card on the homepage."
+      >
+        Walk through asset issuance, trustlines, distribution, and publishing
+        asset metadata for discoverability.
       </Translate>
     ),
-    link: learnMoreLink("/docs/build/apps/overview"),
-  },
-  {
-    title: translate({
-      message: 'Infrastructure Providers',
-      id: 'components.WayfindingBoxes.InfrastructureProviders.Title',
-    }),
-    image: require('@site/static/icons/dev-tools.png').default,
-    description: (
-      <Translate
-        id='components.WayfindingBoxes.InfrastructureProviders.Description'
-        description='Short, punchy description for this "wayfinding box" on the homepage.'>
-        Set up a Horizon or RPC service.
+    linkLabel: (
+      <Translate id="components.WayfindingBoxes.AssetIssuers.Link">
+        Issue assets
       </Translate>
     ),
-    link: learnMoreLink("/docs/data/apis"),
-  },
-  {
-    title: translate({
-      message: 'Analytics',
-      id: 'components.WayfindingBoxes.Analytics.Title'
-    }),
-    image: require('@site/static/icons/access-data.png').default,
-    description: (
-      <Translate
-        id='components.WayfindingBoxes.Analytics.Description'
-        description='Short, punchy description for this "wayfinding box" on the homepage.'>
-        Use Hubble to perform analysis on Stellar network data.
-      </Translate>
-    ),
-    link: learnMoreLink("/docs/data/analytics"),
+    link: "/docs/tokens/quickstart",
   },
 ];
 
-function WayfindingFeature({image, title, description, link}) {
+function WayfindingFeature({
+  title,
+  description,
+  link,
+  linkLabel,
+  icon,
+}: WayfindingItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div>
-        <Link {...link.props} className={styles.boxIconLink}><img src={image} className={styles.boxIcon} role="img" /></Link>
-      </div>
-      <Heading as="h3" className='text--semibold'>{title}</Heading>
+    <Link to={link} className={styles.pathCard}>
+      <span className={styles.icon} data-icon={icon} aria-hidden="true" />
+      <Heading as="h3">{title}</Heading>
       <p>{description}</p>
-      <p className="margin-bottom--lg"><Link className="button button--outline button--primary" {...link.props} /></p>
-    </div>
+      <span className={styles.cardLink}>{linkLabel}</span>
+    </Link>
   );
 }
 
 export default function WayfindingBoxes() {
   return (
-    <section className='margin-vert--lg'>
-      <div className="row">
-        {WayfindingWays.map((props, idx) => (
-          <WayfindingFeature key={idx} {...props} />
-        ))}
-      </div>
+    <section className={styles.pathGrid}>
+      {WayfindingWays.map((props) => (
+        <WayfindingFeature key={props.title} {...props} />
+      ))}
     </section>
   );
 }

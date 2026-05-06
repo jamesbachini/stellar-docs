@@ -1,5 +1,94 @@
+.resourcesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 3rem;
+}
+
 .DeveloperResourcesFeature {
-    border-radius: var(--ifm-global-radius);
-    background-color: var(--ifm-background-surface-color);
-    height: 100%;
+  display: flex;
+  min-width: 0;
+  min-height: 205px;
+  flex-direction: column;
+  border: 1px solid var(--stellar-card-border);
+  border-radius: 12px;
+  padding: 1.2rem;
+  background: var(--stellar-card-bg);
+  color: var(--ifm-color-content);
+  text-decoration: none;
+  transition:
+    border-color var(--ifm-transition-fast) var(--ifm-transition-timing-default),
+    transform var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.DeveloperResourcesFeature:hover {
+  border-color: var(--stellar-card-border-hover);
+  color: var(--ifm-color-content);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.icon {
+  display: inline-flex;
+  width: 2rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  border: 1px solid var(--stellar-card-border);
+  border-radius: 8px;
+  background: var(--stellar-icon-bg);
+}
+
+.icon::before {
+  width: 1rem;
+  height: 1rem;
+  background: var(--ifm-color-primary);
+  content: "";
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+
+.icon[data-icon="message"]::before {
+  mask-image: url("https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/regular/message.svg");
+}
+
+.icon[data-icon="newspaper"]::before {
+  mask-image: url("https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/regular/newspaper.svg");
+}
+
+.icon[data-icon="toolbox"]::before {
+  mask-image: url("https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/regular/toolbox.svg");
+}
+
+.DeveloperResourcesFeature h3 {
+  margin: 0 0 0.65rem;
+  font-size: 1.05rem;
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+.DeveloperResourcesFeature p {
+  flex: 1;
+  margin: 0 0 1rem;
+  color: var(--stellar-muted-text);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.resourceLink {
+  color: var(--ifm-color-primary);
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.resourceLink::after {
+  content: " ->";
+}
+
+@media (max-width: 996px) {
+  .resourcesGrid {
+    grid-template-columns: 1fr;
+  }
 }

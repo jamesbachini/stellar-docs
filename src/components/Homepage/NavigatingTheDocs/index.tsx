@@ -1,160 +1,117 @@
-import React, { type ReactNode } from 'react';
-import Heading from '@theme/Heading';
-import Link from '@docusaurus/Link';
-import Translate, { translate } from '@docusaurus/Translate';
-import clsx from 'clsx';
-import styles from './styles.module.css'
+import React, { type ReactNode } from "react";
+import Heading from "@theme/Heading";
+import Link from "@docusaurus/Link";
+import Translate, { translate } from "@docusaurus/Translate";
+import styles from "./styles.module.css";
 
 export type NavigatingDocsItem = {
   title: string;
   description: ReactNode;
-  link: ReactNode;
-}
+  image: string;
+  cta: ReactNode;
+  link: string;
+};
 
-export const exploreLink = (target: string) => (
-  <Link to={target}>
-    <Translate
-      id='component.Homepage.ExploreButton.Text'
-      description='The text that will be displayed on the "Explore" buttons'>
-      Explore
-    </Translate>
-  </Link>
-)
+export const exploreLabel = (label = "Explore") => (
+  <Translate
+    id={`component.Homepage.ExploreButton.${label.replace(/\s/g, "")}.Text`}
+    description="The text that will be displayed on homepage card links"
+  >
+    {label}
+  </Translate>
+);
 
-export const partitionBoxes = (boxesArray: NavigatingDocsItem[]): NavigatingDocsItem[][] => {
-  return boxesArray.reduce((acc, item, i, arr) => {
+export const partitionBoxes = <T,>(boxesArray: T[]): T[][] => {
+  return boxesArray.reduce<T[][]>((acc, item, i, arr) => {
     if (i % 2 === 0) {
-      acc.push(arr.slice(i, i + 2))
+      acc.push(arr.slice(i, i + 2));
     }
-    return acc
-  }, [])
-}
+    return acc;
+  }, []);
+};
 
 const NavigatingDocsBoxes: NavigatingDocsItem[] = [
   {
     title: translate({
-      message: 'Build',
-      id: 'component.Homepage.NavigatingTheDocs.Build.Title',
+      message: "Access Data and APIs",
+      id: "component.Homepage.NavigatingTheDocs.AccessData.Title",
     }),
+    image: "/img/homepage/access-data.png",
     description: (
       <Translate
-        id='component.Homepage.NavigatingTheDocs.Build.Description'
-        description='Long description of what kind of information this section of the docs.'>
-        Contains tutorials and how-to guides for writing smart contracts, building applications, interacting with the network, and more.
+        id="component.Homepage.NavigatingTheDocs.AccessData.Description"
+        description="Description for the data and APIs homepage card."
+      >
+        Use RPC, Horizon, analytics, and indexer documentation to retrieve
+        network data, submit transactions, and power applications.
       </Translate>
     ),
-    link: exploreLink('/docs/build'),
+    cta: exploreLabel("Explore data"),
+    link: "/docs/data",
   },
   {
     title: translate({
-      message: 'Learn',
-      id: 'component.Homepage.NavigatingTheDocs.Learn.Title',
+      message: "Build on Stellar",
+      id: "component.Homepage.NavigatingTheDocs.Build.Title",
     }),
+    image: "/img/homepage/build-stellar.png",
     description: (
       <Translate
-        id='component.Homepage.NavigatingTheDocs.Learn.Description'
-        description='Long description of what kind of information this section of the docs.'>
-        Find all informational and conceptual content here. Learn about Stellar fundamentals like how accounts and transactions function, dive deeper into the functionality of each operation, discover how fees work, and more.
+        id="component.Homepage.NavigatingTheDocs.Build.Description"
+        description="Description for the build homepage card."
+      >
+        Go from first prototype to production with smart contract tutorials,
+        application guides, and task-focused implementation docs.
       </Translate>
     ),
-    link: exploreLink('/docs/learn/fundamentals'),
+    cta: exploreLabel("Start building"),
+    link: "/docs/build",
   },
   {
     title: translate({
-      message: 'Tokens',
-      id: 'component.Homepage.NavigatingTheDocs.Tokens.Title',
+      message: "Operate and Integrate",
+      id: "component.Homepage.NavigatingTheDocs.Operate.Title",
     }),
+    image: "/img/homepage/operate-integrate.png",
     description: (
       <Translate
-        id='component.Homepage.NavigatingTheDocs.Tokens.Description'
-        description='Long description of what kind of information this section of the docs.'>
-        Information on how to issue assets on the Stellar network and create custom smart contract tokens.
+        id="component.Homepage.NavigatingTheDocs.Operate.Description"
+        description="Description for the operate and integrate homepage card."
+      >
+        Find platform docs, developer tools, network references, and validator
+        guidance for running Stellar in real-world environments.
       </Translate>
     ),
-    link: exploreLink('/docs/tokens'),
+    cta: exploreLabel("View platforms"),
+    link: "/docs/platforms",
   },
-  {
-    title: translate({
-      message: 'Data',
-      id: 'component.Homepage.NavigatingTheDocs.Data.Title',
-    }),
-    description: (
-      <Translate
-        id='component.Homepage.NavigatingTheDocs.Data.Description'
-        description='Long description of what kind of information this section of the docs.'>
-        Discover various data availability options: RPC, Hubble, Horizon, Galexie, and data indexers.
-      </Translate>
-    ),
-    link: exploreLink('/docs/data'),
-  },
-  {
-    title: translate({
-      message: 'Tools',
-      id: 'component.Homepage.NavigatingTheDocs.Tools.Title',
-    }),
-    description: (
-      <Translate
-        id='component.Homepage.NavigatingTheDocs.Tools.Description'
-        description='Long description of what kind of information this section of the docs.'>
-        Learn about all the available tools for building on, interacting with, or just watching the Stellar network. Also, find information on how to use the Anchor Platform or Stellar Disbursement Platform.
-      </Translate>
-    ),
-    link: exploreLink('/docs/tools'),
-  },
-  {
-    title: translate({
-      message: 'Networks',
-      id: 'component.Homepage.NavigatingTheDocs.Networks.Title',
-    }),
-    description: (
-      <Translate
-        id='component.Homepage.NavigatingTheDocs.Networks.Description'
-        description='Long description of what kind of information this section of the docs.'>
-        Information about deployed networks (Mainnet, Testnet, and Futurenet), current software versions, resource limitations, and fees.
-      </Translate>
-    ),
-    link: exploreLink('/docs/networks'),
-  },
-  {
-    title: translate({
-      message: 'Validators',
-      id: 'component.Homepage.NavigatingTheDocs.Validators.Title',
-    }),
-    description: (
-      <Translate
-        id='component.Homepage.NavigatingTheDocs.Validators.Description'
-        description='Long description of what kind of information this section of the docs.'>
-        Everything you'll need to know if you want to run, operate, and maintain a core validator node on the Stellar network.
-      </Translate>
-    ),
-    link: exploreLink('/docs/validators'),
-  },
-]
+];
 
-function NavigatingDocsFeature({title, description, link}) {
+function NavigatingDocsFeature({
+  title,
+  description,
+  image,
+  cta,
+  link,
+}: NavigatingDocsItem) {
   return (
-    <div className='col col--6 padding--md'>
-      <div className={clsx(styles.NavigatingDocsFeature, 'padding--lg')}>
-        <Heading as="h3" className='text--semibold'>{title}</Heading>
+    <Link to={link} className={styles.NavigatingDocsFeature}>
+      <img src={image} alt="" className={styles.cardImage} loading="lazy" />
+      <div className={styles.cardBody}>
+        <Heading as="h3">{title}</Heading>
         <p>{description}</p>
-        <Link className='button button--outline button--primary' {...link.props} />
+        <span className={styles.docLink}>{cta}</span>
       </div>
-    </div>
-  )
+    </Link>
+  );
 }
 
 export default function NavigatingTheDocs() {
-  const partitionedBoxes = partitionBoxes(NavigatingDocsBoxes)
-
   return (
-    <section className='margin-vert--lg'>
-      {partitionedBoxes.map((twoBoxes) => (
-        <div className='row'>
-          {twoBoxes.map((props, idx) => (
-            <NavigatingDocsFeature key={idx} {...props} />
-          ))}
-        </div>
+    <section className={styles.docsGrid}>
+      {NavigatingDocsBoxes.map((props) => (
+        <NavigatingDocsFeature key={props.title} {...props} />
       ))}
     </section>
-  )
+  );
 }

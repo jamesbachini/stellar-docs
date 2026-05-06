@@ -1,16 +1,16 @@
-import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex';
-import { themes as prismThemes } from 'prism-react-renderer';
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import { themes as prismThemes } from "prism-react-renderer";
 
 // import { makeEditUrl, DEFAULT_LOCALE, GOOGLE_TRANSLATE_ELEMENT } from './config/constants';
-import navbarItems from './config/theme/navbar';
-import footerColumns from './config/theme/footer';
-import { headTags } from './config/theme/headTags';
+import navbarItems from "./config/theme/navbar";
+import footerColumns from "./config/theme/footer";
+import { headTags } from "./config/theme/headTags";
 
-import type { Config } from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
-import type * as Plugin from '@docusaurus/types/src/plugin';
-import type * as OpenApiPlugin from 'docusaurus-plugin-openapi-docs';
+import type { Config } from "@docusaurus/types";
+import type * as Preset from "@docusaurus/preset-classic";
+import type * as Plugin from "@docusaurus/types/src/plugin";
+import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 const config: Config = {
   // future: {
@@ -33,7 +33,7 @@ const config: Config = {
   // },
   scripts: [
     {
-      src: 'https://translate.google.com/translate_a/element.js',
+      src: "https://translate.google.com/translate_a/element.js",
       async: true,
     },
   ],
@@ -60,7 +60,8 @@ const config: Config = {
           } satisfies OpenApiPlugin.Options,
           ap_platform: {
             specPath: "openapi/anchor-platform/bundled-platform.yaml",
-            outputDir: "docs/platforms/anchor-platform/api-reference/platform/transactions",
+            outputDir:
+              "docs/platforms/anchor-platform/api-reference/platform/transactions",
             hideSendButton: true,
             template: "src/template.mustache",
           } satisfies OpenApiPlugin.Options,
@@ -72,18 +73,19 @@ const config: Config = {
           } satisfies OpenApiPlugin.Options,
           stellar_disbursement_platform: {
             specPath: "openapi/stellar-disbursement-platform/bundled.yaml",
-            outputDir: "docs/platforms/stellar-disbursement-platform/api-reference",
+            outputDir:
+              "docs/platforms/stellar-disbursement-platform/api-reference",
             sidebarOptions: {
               groupPathsBy: "tag",
-              categoryLinkSource: 'tag',
+              categoryLinkSource: "tag",
             },
             template: "src/template.mustache",
           } satisfies OpenApiPlugin.Options,
         } satisfies Plugin.PluginOptions,
       },
     ],
-    './src/plugins/route-export/index.ts',
-    './src/plugins/analytics-module/index.ts',
+    "./src/plugins/route-export/index.ts",
+    "./src/plugins/analytics-module/index.ts",
   ],
   markdown: {
     mermaid: true,
@@ -91,7 +93,7 @@ const config: Config = {
       headingIds: true,
     },
     hooks: {
-      onBrokenMarkdownLinks: 'throw',
+      onBrokenMarkdownLinks: "throw",
     },
   },
   themes: ["docusaurus-theme-openapi-docs", "@docusaurus/theme-mermaid"],
@@ -100,14 +102,15 @@ const config: Config = {
       "classic",
       {
         blog: {
-          path: 'meeting-notes',
-          blogTitle: 'Meeting Notes',
-          blogDescription: 'Notes and recordings from the Stellar protocol & developers meetings',
-          blogSidebarTitle: 'All meetings',
-          blogSidebarCount: 'ALL',
+          path: "meeting-notes",
+          blogTitle: "Meeting Notes",
+          blogDescription:
+            "Notes and recordings from the Stellar protocol & developers meetings",
+          blogSidebarTitle: "All meetings",
+          blogSidebarCount: "ALL",
           postsPerPage: 12,
-          routeBasePath: 'meetings',
-          onUntruncatedBlogPosts: 'ignore',
+          routeBasePath: "meetings",
+          onUntruncatedBlogPosts: "ignore",
         },
         docs: {
           showLastUpdateTime: true,
@@ -115,15 +118,16 @@ const config: Config = {
           breadcrumbs: true,
           routeBasePath: "/docs",
           docItemComponent: "@theme/ApiItem",
-          remarkPlugins: [remarkMath, [
-            require('@docusaurus/remark-plugin-npm2yarn'), { sync: true }
-          ]],
+          remarkPlugins: [
+            remarkMath,
+            [require("@docusaurus/remark-plugin-npm2yarn"), { sync: true }],
+          ],
           rehypePlugins: [rehypeKatex],
           sidebarPath: "config/sidebars.ts",
           sidebarItemsGenerator: require("./src/sidebar-generator"),
           // editUrl: makeEditUrl,
           editUrl: "https://github.com/stellar/stellar-docs/edit/main",
-          exclude: ['**/component/**', '**/CONTRIBUTING.md'],
+          exclude: ["**/component/**", "**/CONTRIBUTING.md"],
         },
         theme: {
           customCss: [require.resolve("./src/css/custom.scss")],
@@ -140,26 +144,35 @@ const config: Config = {
   ],
   stylesheets: [
     {
-      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
-      type: 'text/css',
-      integrity: 'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
-      crossorigin: 'anonymous',
+      href: "https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css",
+      type: "text/css",
+      integrity:
+        "sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM",
+      crossorigin: "anonymous",
     },
   ],
   headTags: headTags,
   themeConfig: {
     announcementBar: {
-      id: 'announcementBar-translation',
-      content: '<strong>Disclaimer:</strong> This documentation has been automatically translated and may contain inaccuracies. For the most accurate information, please refer to the original English version. We are not responsible for translation errors.',
+      id: "announcementBar-translation",
+      content:
+        "<strong>Disclaimer:</strong> This documentation has been automatically translated and may contain inaccuracies. For the most accurate information, please refer to the original English version. We are not responsible for translation errors.",
     },
     docs: {
       sidebar: {
         autoCollapseCategories: false,
       },
     },
-    image: 'img/docusaurus/dev-docs-preview.png',
+    colorMode: {
+      defaultMode: "light",
+      respectPrefersColorScheme: true,
+    },
+    image: "img/docusaurus/dev-docs-preview.png",
     metadata: [
-      { name: 'facebook-domain-verification', content: 'd0o7hha86jfxvtqyxz3d9i5wtfanmy' }
+      {
+        name: "facebook-domain-verification",
+        content: "d0o7hha86jfxvtqyxz3d9i5wtfanmy",
+      },
     ],
     navbar: {
       logo: {
@@ -181,7 +194,7 @@ const config: Config = {
           href: "https://github.com/stellar/stellar-docs",
           position: "right",
           className: "header-github-link",
-          'aria-label': "GitHub",
+          "aria-label": "GitHub",
         },
       ],
     },

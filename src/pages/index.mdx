@@ -7,30 +7,133 @@ description: "Build decentralized apps, issue assets, and write smart contracts 
 import WayfindingBoxes from "@site/src/components/Homepage/WayfindingBoxes";
 import NavigatingTheDocs from "@site/src/components/Homepage/NavigatingTheDocs";
 import DeveloperResources from "@site/src/components/Homepage/DeveloperResources";
-import PathfindingTable from "@site/src/components/Homepage/PathfindingTable";
 
-# Welcome to Stellar Developer Docs
+<section className="homeHero">
+  <div className="homeHero__content">
+    <h1>Build blockchain apps, payments, and smart contracts on Stellar</h1>
+    <p>
+      Explore end-to-end guides, API references, developer tools, network docs,
+      and production platforms for building on Stellar with confidence.
+    </p>
+    <div className="homeHero__actions">
+      <a className="button button--primary" href="/docs/build">
+        Start Building
+      </a>
+      <a
+        className="button button--secondary"
+        href="/docs/tools/developer-tools/quickstart"
+      >
+        Run Quickstart
+      </a>
+    </div>
+  </div>
+</section>
 
-Stellar is a layer-1 open-source, decentralized, peer-to-peer blockchain network that provides a framework for developers to create applications, issue assets, write smart contracts, and connect to existing financial rails. Stellar is designed to enable creators, innovators, and developers to build projects on the network that can interoperate with each other.
+## Quick Start
 
-The developer docs will teach you how to build applications, issue and use tokens, write smart contracts, set up on and off-ramps, set up a validator node, and more.
+Get a working Stellar development flow in place, fund a test account, and choose the track that fits your product.
 
-## **Stellar for...**
+<section className="homeQuickStart">
+  <article>
+    <span>1</span>
+    <div>
+      <h3>Choose your local workflow</h3>
+      <p>
+        Start with{" "}
+        <a href="/docs/tools/developer-tools/quickstart">Quickstart</a> if you
+        want a local Stellar environment, or jump into the{" "}
+        <a href="/docs/build">Build overview</a> if you want tutorials and
+        implementation guides first.
+      </p>
+      <pre>
+        <code>docker run --rm -it stellar/quickstart --standalone</code>
+      </pre>
+    </div>
+  </article>
+  <article>
+    <span>2</span>
+    <div>
+      <h3>Set up a test account</h3>
+      <p>
+        Use <a href="https://lab.stellar.org">Stellar Lab</a> or Friendbot on
+        <a href="/docs/networks/testnet"> Testnet</a> to create and fund an
+        account before you test transactions, smart contracts, or wallet flows.
+      </p>
+      <pre>
+        <code>{`{
+  "successful": true,
+  "network": "testnet",
+  "account": "G..."
+}`}</code>
+      </pre>
+    </div>
+  </article>
+  <article>
+    <span>3</span>
+    <div>
+      <h3>Make your first call</h3>
+      <p>
+        Choose <a href="/docs/data/apis/rpc">RPC</a> for real-time app and
+        contract workflows,
+        <a href="/docs/data/apis/horizon"> Horizon</a> for legacy integrations,
+        or
+        <a href="/docs/tools/sdks"> SDKs</a> if you want a language-specific
+        developer experience.
+      </p>
+    </div>
+  </article>
+  <article>
+    <span>4</span>
+    <div>
+      <h3>Pick a build path</h3>
+      <p>
+        Use{" "}
+        <a href="/docs/build/smart-contracts/getting-started">
+          Smart Contract Getting Started
+        </a>
+        ,<a href="/docs/build/apps/overview"> Applications</a>, or
+        <a href="/docs/tokens"> Tokens</a> depending on what you are shipping.
+      </p>
+    </div>
+  </article>
+</section>
 
-<WayfindingBoxes />
+## Explore Docs
 
-<hr />
-
-## **Navigating the docs**
-
-What each main section of the developer docs contains.
+Jump straight into the major areas of the site, from hands-on implementation to infrastructure and ecosystem services.
 
 <NavigatingTheDocs />
 
-## **Developer resources**
+## Popular Paths
 
-Interact with other Stellar developers, keep up with ecosystem standards and protocol upgrades, and learn about upcoming events.
+Start with curated entry points for common Stellar product and infrastructure workflows.
+
+<WayfindingBoxes />
+
+## Resources
+
+Get help, stay current, and connect with the broader Stellar developer ecosystem.
 
 <DeveloperResources />
 
-<hr />
+<section className="homeCta">
+  <h2>Ready to build on Stellar?</h2>
+  <p>
+    Start with a local network, walk through a first integration, and use the
+    docs as your reference all the way to production deployment.
+  </p>
+  <div className="homeHero__actions">
+    <a
+      className="button button--primary"
+      href="/docs/tools/developer-tools/quickstart"
+    >
+      Open Quickstart
+    </a>
+    <a
+      className="button button--secondary"
+      href="/docs/build/smart-contracts/getting-started"
+    >
+      Smart Contract Guide
+    </a>
+  </div>
+</section>

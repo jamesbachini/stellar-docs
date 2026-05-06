@@ -1,5 +1,75 @@
+.docsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 3rem;
+}
+
 .NavigatingDocsFeature {
-    border-radius: var(--ifm-global-radius);
-    background-color: var(--ifm-background-surface-color);
-    height: 100%;
+  display: flex;
+  min-width: 0;
+  overflow: hidden;
+  flex-direction: column;
+  border: 1px solid var(--stellar-card-border);
+  border-radius: 12px;
+  background: var(--stellar-card-bg);
+  color: var(--ifm-color-content);
+  text-decoration: none;
+  transition:
+    border-color var(--ifm-transition-fast) var(--ifm-transition-timing-default),
+    box-shadow var(--ifm-transition-fast) var(--ifm-transition-timing-default),
+    transform var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.NavigatingDocsFeature:hover {
+  border-color: var(--stellar-card-border-hover);
+  color: var(--ifm-color-content);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.cardImage {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-bottom: 1px solid var(--stellar-card-border);
+}
+
+.cardBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.25rem;
+}
+
+.cardBody h3 {
+  margin: 0 0 0.65rem;
+  font-size: 1.25rem;
+  font-weight: 650;
+}
+
+.cardBody p {
+  flex: 1;
+  margin: 0 0 1rem;
+  color: var(--stellar-muted-text);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.docLink {
+  color: var(--ifm-color-primary);
+  font-size: 0.92rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.docLink::after {
+  content: " ->";
+}
+
+@media (max-width: 996px) {
+  .docsGrid {
+    grid-template-columns: 1fr;
+  }
 }
