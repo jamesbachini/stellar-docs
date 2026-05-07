@@ -1,13 +1,13 @@
-import React, {type ReactNode} from 'react';
-import clsx from 'clsx';
-import DocCardList from '@theme-original/DocCardList';
-import type DocCardListType from '@theme/DocCardList';
+import React, { type ReactNode } from "react";
+import clsx from "clsx";
+import DocCardList from "@theme-original/DocCardList";
+import type DocCardListType from "@theme/DocCardList";
 import {
   useCurrentSidebarCategory,
   useDocById,
-} from '@docusaurus/plugin-content-docs/client';
-import type {PropSidebarItem} from '@docusaurus/plugin-content-docs';
-import type {WrapperProps} from '@docusaurus/types';
+} from "@docusaurus/plugin-content-docs/client";
+import type { PropSidebarItem } from "@docusaurus/plugin-content-docs";
+import type { WrapperProps } from "@docusaurus/types";
 
 type Props = WrapperProps<typeof DocCardListType> & {
   items?: PropSidebarItem[];
@@ -21,11 +21,11 @@ interface CustomDocCardListProps {
 
 function DocCardListForCurrentSidebarCategory({
   className,
-}: Pick<CustomDocCardListProps, 'className'>): ReactNode {
+}: Pick<CustomDocCardListProps, "className">): ReactNode {
   const category = useCurrentSidebarCategory();
 
-  const exampleContractsLabels = ['Example Contracts', 'Ejemplos de contratos'];
-  const howToGuidesLabels = ['How-To Guides', 'Guías de Cómo-Hacer'];
+  const exampleContractsLabels = ["Example Contracts", "Ejemplos de contratos"];
+  const howToGuidesLabels = ["How-To Guides", "Guías de Cómo-Hacer"];
 
   if (exampleContractsLabels.includes(category.label)) {
     return (
@@ -41,11 +41,11 @@ function DocCardListForCurrentSidebarCategory({
 }
 
 function ExampleContractsDocCardList(props: CustomDocCardListProps): ReactNode {
-  const {items, className} = props;
+  const { items, className } = props;
   return (
-    <section className={clsx('row', className)}>
+    <section className={clsx("row", className)}>
       {items
-        ?.filter((item) => item.type === 'link')
+        ?.filter((item) => item.type === "link")
         .map((item) => {
           const doc = useDocById(item.docId ?? undefined);
           item.description = item.description ?? doc?.description;
@@ -53,7 +53,7 @@ function ExampleContractsDocCardList(props: CustomDocCardListProps): ReactNode {
             <p className="col col--12" key={item.href}>
               <a href={item.href}>
                 <strong>{item.label}</strong>
-              </a>{' '}
+              </a>{" "}
               - {item.description}
             </p>
           );
@@ -63,19 +63,20 @@ function ExampleContractsDocCardList(props: CustomDocCardListProps): ReactNode {
 }
 
 function GuidesDocCardList(props: CustomDocCardListProps): ReactNode {
-  const {items, className} = props;
+  const { items, className } = props;
   return (
-    <div className={clsx('row', className)}>
+    <div className={clsx("row", className)}>
       {items
-        ?.filter((item) => item.type === 'category')
+        ?.filter((item) => item.type === "category")
         .map((item) => {
           return (
             <section
-              className={clsx('col', 'col--6', 'margin-bottom--lg', className)}
-              key={item.label}>
+              className={clsx("col", "col--6", "margin-bottom--lg", className)}
+              key={item.label}
+            >
               <h2>{item.label}</h2>
               {item.items
-                .filter((item) => item.type === 'link')
+                .filter((item) => item.type === "link")
                 .map((item) => (
                   <p className="margin-bottom--sm" key={item.href}>
                     <a href={item.href}>{item.label}</a>
@@ -89,7 +90,7 @@ function GuidesDocCardList(props: CustomDocCardListProps): ReactNode {
 }
 
 export default function DocCardListWrapper(props: Props): ReactNode {
-  const {items, className} = props;
+  const { items, className } = props;
 
   if (!items) {
     return <DocCardListForCurrentSidebarCategory className={className} />;
