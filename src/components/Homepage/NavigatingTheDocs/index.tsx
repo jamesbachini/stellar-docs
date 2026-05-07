@@ -69,21 +69,20 @@ const NavigatingDocsBoxes: NavigatingDocsItem[] = [
   },
   {
     title: translate({
-      message: "Operate and Integrate",
-      id: "component.Homepage.NavigatingTheDocs.Operate.Title",
+      message: "Asset Issuers",
+      id: "component.Homepage.NavigatingTheDocs.AssetIssuers.Title",
     }),
     image: "/img/homepage/operate-integrate.png",
     description: (
       <Translate
-        id="component.Homepage.NavigatingTheDocs.Operate.Description"
-        description="Description for the operate and integrate homepage card."
+        id="component.Homepage.NavigatingTheDocs.AssetIssuers.Description"
+        description="Description for the asset issuers homepage card."
       >
-        Find platform docs, developer tools, network references, and validator
-        guidance for running Stellar in real-world environments.
+        Issue a digital asset or create a custom smart contract token.
       </Translate>
     ),
-    cta: exploreLabel("View platforms"),
-    link: "/docs/platforms",
+    cta: exploreLabel("Explore tokens"),
+    link: "/docs/tokens",
   },
 ];
 

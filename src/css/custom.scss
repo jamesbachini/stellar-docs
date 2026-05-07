@@ -24,10 +24,10 @@
   --stellar-yellow-soft: #fff4b8;
   --stellar-ink: #0b0b0c;
   --stellar-ink-soft: #1a1a1d;
-  --stellar-cream: #f7f4ee;
-  --stellar-paper: #fbfaf6;
+  --stellar-cream: #faf9f6;
+  --stellar-paper: #fffefd;
   --stellar-surface: #ffffff;
-  --stellar-surface-2: #f7f4ee;
+  --stellar-surface-2: #faf9f6;
   --stellar-rule: #e7e2d6;
   --stellar-rule-strong: #d6cfbe;
   --stellar-muted-text: #5b5a57;
@@ -92,9 +92,21 @@
   --ifm-global-radius: 6px;
   --ifm-button-border-radius: 999px;
   --ifm-navbar-height: 4.25rem;
-  --ifm-navbar-background-color: rgba(251, 250, 246, 0.85);
+  --ifm-navbar-background-color: rgba(255, 254, 253, 0.85);
   --ifm-navbar-shadow: none;
   --ifm-navbar-link-color: var(--stellar-nav-text);
+
+  --docsearch-primary-color: var(--stellar-muted-text-strong);
+  --docsearch-highlight-color: var(--stellar-muted-text-strong);
+  --docsearch-focus-color: var(--stellar-muted-text-strong);
+  --docsearch-soft-primary-color: rgba(91, 90, 87, 0.12);
+  --docsearch-subtle-color: var(--stellar-rule);
+  --docsearch-muted-color: var(--stellar-muted-text);
+  --docsearch-icon-color: var(--stellar-muted-text);
+  --docsearch-search-button-background: var(--stellar-surface);
+  --docsearch-search-button-text-color: var(--stellar-muted-text);
+  --docsearch-key-background: var(--stellar-cream);
+  --docsearch-key-color: var(--stellar-muted-text);
 
   --ifm-footer-background-color: #0b0b0c;
   --ifm-footer-color: rgba(247, 244, 238, 0.7);
@@ -156,6 +168,17 @@ html[data-theme="dark"] {
   --ifm-heading-color: var(--stellar-ink);
   --ifm-navbar-background-color: rgba(11, 11, 12, 0.78);
   --ifm-navbar-link-color: var(--stellar-nav-text);
+  --docsearch-primary-color: var(--stellar-muted-text-strong);
+  --docsearch-highlight-color: var(--stellar-muted-text-strong);
+  --docsearch-focus-color: var(--stellar-muted-text-strong);
+  --docsearch-soft-primary-color: rgba(247, 244, 238, 0.12);
+  --docsearch-subtle-color: var(--stellar-rule-strong);
+  --docsearch-muted-color: var(--stellar-muted-text);
+  --docsearch-icon-color: var(--stellar-muted-text);
+  --docsearch-search-button-background: var(--stellar-surface-2);
+  --docsearch-search-button-text-color: var(--stellar-muted-text);
+  --docsearch-key-background: rgba(247, 244, 238, 0.08);
+  --docsearch-key-color: var(--stellar-muted-text);
   --ifm-menu-color-background-active: rgba(253, 218, 36, 0.1);
   --ifm-menu-color-background-hover: rgba(247, 244, 238, 0.05);
   --ifm-toc-link-color: rgba(247, 244, 238, 0.65);
@@ -242,7 +265,7 @@ h2 {
 }
 
 .navbar__brand {
-  margin-right: 1.35rem;
+  margin-right: 1.75rem;
   color: var(--stellar-nav-text-strong);
   font-weight: 500;
 }
@@ -253,9 +276,10 @@ h2 {
 
 .navbar__link {
   border-radius: 999px;
-  padding: 0.35rem 0.7rem;
+  margin: 0 0.2rem;
+  padding: 0.35rem 0.85rem;
   font-family: var(--ifm-font-family-base);
-  font-size: 0.86rem;
+  font-size: 0.8rem;
   font-weight: 450;
   letter-spacing: 0;
   color: var(--ifm-navbar-link-color);
@@ -275,18 +299,52 @@ html[data-theme="dark"] .navbar__link:hover {
 
 .navbar__link--active {
   color: var(--stellar-nav-text-strong);
-  background: rgba(11, 11, 12, 0.05);
   font-weight: 500;
 }
 
 html[data-theme="dark"] .navbar__link--active {
   color: var(--stellar-nav-text-strong);
-  background: rgba(247, 244, 238, 0.08);
+}
+
+.navbar__link svg[class*="iconExternalLink"] {
+  display: none;
 }
 
 @media (min-width: 1440px) {
   .navbar__inner {
     max-width: var(--ifm-container-width-xl);
+  }
+}
+
+@media (min-width: 997px) {
+  .navbar__items .mobile-main-menu-item {
+    display: none;
+  }
+}
+
+@media (max-width: 996px) {
+  .navbar__inner {
+    gap: 0.25rem;
+  }
+
+  .navbar__toggle {
+    order: 4;
+    margin: 0 0 0 0.25rem;
+  }
+
+  .navbar__brand {
+    order: 1;
+    margin-right: 0;
+  }
+
+  .navbar__items--left {
+    flex: 0 1 auto;
+  }
+
+  .navbar__items--right {
+    order: 3;
+    flex: 0 0 auto;
+    margin-left: auto;
   }
 }
 
@@ -456,7 +514,7 @@ html[data-theme="dark"] .markdown a:not(.button):hover {
   border: 1px solid var(--global-border-color);
 }
 
-.theme-doc-markdown code {
+.theme-doc-markdown :not(pre) > code {
   border: 1px solid var(--global-border-color);
   background: var(--ifm-code-background);
   border-radius: 4px;
@@ -469,6 +527,17 @@ div[class^="codeBlockContainer_"] {
   border-radius: 10px;
   box-shadow: var(--stellar-card-shadow);
   background: var(--ifm-pre-background);
+}
+
+div[class^="codeBlockContainer_"] code[class^="codeBlockLines_"] {
+  border: 0;
+  background: transparent;
+  padding: 0.625rem 0.5rem;
+}
+
+div[class^="codeBlockContainer_"]
+  code[class^="codeBlockLines_"][class*="codeBlockLinesWithNumbering_"] {
+  padding: 0.625rem 0;
 }
 
 div[class^="codeBlockTitle_"] {
@@ -560,7 +629,7 @@ html[data-theme="dark"] .pagination-nav__link:hover {
 }
 
 .button--primary {
-  --ifm-button-color: var(--stellar-ink);
+  --ifm-button-color: var(--stellar-cream);
   --ifm-button-border-color: var(--stellar-yellow);
   --ifm-button-background-color: var(--stellar-yellow);
 
@@ -570,7 +639,7 @@ html[data-theme="dark"] .pagination-nav__link:hover {
 }
 
 .button--primary:hover {
-  border-color: var(--stellar-ink);
+  border-color: var(--stellar-cream);
   background: var(--stellar-ink);
   color: var(--stellar-yellow);
   transform: translateY(-1px);
@@ -609,69 +678,9 @@ html[data-theme="dark"] .button--secondary:hover {
  * Homepage
  * ---------------------------------------------------------------- */
 
-.homeHero {
+.homeIntro {
   position: relative;
-  padding: 6rem 0 3.5rem;
-  border-bottom: 1px solid var(--global-border-color);
-}
-
-.homeHero::after {
-  content: "";
-  position: absolute;
-  right: -6rem;
-  top: 4rem;
-  width: 22rem;
-  height: 22rem;
-  border-radius: 999px;
-  background: radial-gradient(
-    closest-side,
-    var(--stellar-yellow) 0%,
-    rgba(253, 218, 36, 0) 70%
-  );
-  opacity: 0.55;
-  pointer-events: none;
-  z-index: 0;
-}
-
-html[data-theme="dark"] .homeHero::after {
-  opacity: 0.22;
-}
-
-.homeHero__content {
-  position: relative;
-  z-index: 1;
-  max-width: 880px;
-}
-
-.homeHero__content h1 {
-  margin: 0;
-  font-family: var(--ifm-heading-font-family);
-  font-style: italic;
-  font-weight: 500;
-  font-size: clamp(2.6rem, 5.6vw, 4.6rem);
-  line-height: 1.02;
-  letter-spacing: -0.025em;
-  color: var(--stellar-ink);
-}
-
-.homeHero__content h1::after {
-  content: "";
-  display: inline-block;
-  margin-left: 0.2em;
-  width: 0.32em;
-  height: 0.32em;
-  border-radius: 999px;
-  background: var(--stellar-yellow);
-  vertical-align: 0.18em;
-}
-
-.homeHero__content p {
-  max-width: 640px;
-  margin: 1.5rem 0 0;
-  color: var(--stellar-muted-text-strong);
-  font-size: 1.18rem;
-  line-height: 1.55;
-  font-family: var(--ifm-font-family-base);
+  padding: 1.25rem 0 0;
 }
 
 .homeEyebrow {
@@ -866,15 +875,17 @@ main .container article h2,
 }
 
 .homeCta .button--primary {
+  --ifm-button-color: #0b0b0c;
+
   background: var(--stellar-yellow);
   border-color: var(--stellar-yellow);
-  color: var(--stellar-ink);
+  color: #0b0b0c;
 }
 
 .homeCta .button--primary:hover {
   background: var(--stellar-paper);
   border-color: var(--stellar-paper);
-  color: var(--stellar-ink);
+  color: #0b0b0c;
 }
 
 .homeCta .button--secondary {
@@ -886,12 +897,30 @@ main .container article h2,
 .homeCta .button--secondary:hover {
   background: var(--stellar-paper);
   border-color: var(--stellar-paper);
-  color: var(--stellar-ink);
+  color: #0b0b0c;
+}
+
+html[data-theme="dark"] .homeCta p {
+  color: #0b0b0c;
+}
+
+html[data-theme="dark"] .homeCta .button--primary,
+html[data-theme="dark"] .homeCta .button--secondary {
+  --ifm-button-color: #0b0b0c;
+
+  color: #0b0b0c;
+}
+
+html[data-theme="dark"] .homeCta .button--primary:hover,
+html[data-theme="dark"] .homeCta .button--secondary:hover {
+  background: #fffefd;
+  border-color: #fffefd;
+  color: #0b0b0c;
 }
 
 @media (max-width: 996px) {
-  .homeHero {
-    padding: 4rem 0 2.5rem;
+  .homeIntro {
+    padding-top: 1rem;
   }
 
   .homeQuickStart {
@@ -906,14 +935,6 @@ main .container article h2,
 @media (max-width: 640px) {
   :root {
     --ifm-spacing-horizontal: 1rem;
-  }
-
-  .homeHero {
-    padding: 3rem 0 2rem;
-  }
-
-  .homeHero__content h1 {
-    font-size: clamp(2.25rem, 12vw, 3.2rem);
   }
 
   .homeHero__actions,

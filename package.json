@@ -10,6 +10,7 @@
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
+    "dev": "docusaurus start --poll",
     "api:clean": "docusaurus clean-api-docs all",
     "api:bundle": "yarn bundle-horizon && yarn bundle-anchor-platform && yarn bundle-stellar-disbursement-platform",
     "bundle-horizon": "redocly bundle horizon --output openapi/horizon/bundled.yml",

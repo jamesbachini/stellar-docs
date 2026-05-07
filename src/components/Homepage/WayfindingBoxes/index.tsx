@@ -79,25 +79,24 @@ const WayfindingWays: WayfindingItem[] = [
   },
   {
     title: translate({
-      message: "Issue and Manage Assets",
-      id: "components.WayfindingBoxes.AssetIssuers.Title",
+      message: "How To Guides",
+      id: "components.WayfindingBoxes.HowToGuides.Title",
     }),
     icon: "wallet",
     description: (
       <Translate
-        id="components.WayfindingBoxes.AssetIssuers.Description"
+        id="components.WayfindingBoxes.HowToGuides.Description"
         description="Short description for a popular path card on the homepage."
       >
-        Walk through asset issuance, trustlines, distribution, and publishing
-        asset metadata for discoverability.
+        Step-by-step instructions to help users complete specific tasks.
       </Translate>
     ),
     linkLabel: (
-      <Translate id="components.WayfindingBoxes.AssetIssuers.Link">
-        Issue assets
+      <Translate id="components.WayfindingBoxes.HowToGuides.Link">
+        View guides
       </Translate>
     ),
-    link: "/docs/tokens/quickstart",
+    link: "/docs/build/guides",
   },
 ];
 

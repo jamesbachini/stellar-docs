@@ -13,14 +13,15 @@ import type * as Plugin from "@docusaurus/types/src/plugin";
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 const config: Config = {
-  // future: {
-  //   experimental_faster: true,
-  // },
+  future: {
+    v4: true,
+    faster: true,
+  },
   title: "Stellar Docs",
   tagline:
     "Stellar is a self-serve distributed ledger that you can use as a backend to power all kinds of apps and services",
   url: "https://developers.stellar.org",
-  baseUrl: "/",
+  baseUrl: "/", // /misc/stellar-docs-concept/
   trailingSlash: false,
   onBrokenAnchors: "ignore",
   onBrokenLinks: "throw",
@@ -165,7 +166,7 @@ const config: Config = {
     },
     colorMode: {
       defaultMode: "light",
-      respectPrefersColorScheme: true,
+      respectPrefersColorScheme: false,
     },
     image: "img/docusaurus/dev-docs-preview.png",
     metadata: [
@@ -179,9 +180,14 @@ const config: Config = {
         width: 100,
         src: "img/docusaurus/stellar-logo.svg",
         srcDark: "img/docusaurus/stellar-logo-dark.svg",
-        href: "/",
+        href: "https://stellar.org",
       },
       items: [
+        navbarItems.docs,
+        navbarItems.learnLink,
+        navbarItems.ai,
+        navbarItems.funding,
+        navbarItems.community,
         navbarItems.build,
         navbarItems.learn,
         navbarItems.tokens,

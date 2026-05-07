@@ -1,0 +1,129 @@
+.sidebar {
+  position: sticky;
+  top: var(--ifm-navbar-height);
+  height: calc(100vh - var(--ifm-navbar-height));
+  overflow-y: auto;
+  padding: 1rem 0.75rem 1.5rem;
+  border-right: 1px solid var(--global-border-color);
+  background: var(--ifm-background-color);
+}
+
+.nav {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.section {
+  min-width: 0;
+}
+
+.sectionButton {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+  padding: 0.55rem 0.65rem;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--stellar-muted-text-strong);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.sectionButton:hover,
+.sectionButtonOpen {
+  background: rgba(11, 11, 12, 0.04);
+  color: var(--stellar-ink);
+}
+
+.sectionButtonActive {
+  color: var(--stellar-ink);
+}
+
+.caret {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.15s ease;
+}
+
+.sectionButtonOpen .caret {
+  transform: rotate(225deg);
+}
+
+.submenu {
+  display: grid;
+  gap: 0.1rem;
+  margin: 0.1rem 0 0.55rem;
+  padding-left: 0.35rem;
+}
+
+.link,
+.subheading {
+  display: block;
+  min-width: 0;
+  border-radius: 6px;
+  line-height: 1.25;
+}
+
+.link {
+  padding: 0.38rem 0.65rem;
+  color: var(--stellar-muted-text-strong);
+  font-size: 0.86rem;
+  text-decoration: none;
+}
+
+.link:hover {
+  background: rgba(11, 11, 12, 0.04);
+  color: var(--stellar-ink);
+  text-decoration: none;
+}
+
+.linkActive {
+  background: var(--stellar-yellow-soft);
+  color: var(--stellar-ink);
+  font-weight: 600;
+}
+
+.subheading {
+  margin: 0.45rem 0 0.1rem;
+  padding: 0.3rem 0.65rem 0.2rem;
+  color: var(--stellar-muted-text);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+html[data-theme="dark"] .sectionButton:hover,
+html[data-theme="dark"] .sectionButtonOpen {
+  background: rgba(247, 244, 238, 0.05);
+  color: var(--stellar-nav-text-strong);
+}
+
+html[data-theme="dark"] .sectionButtonActive {
+  color: var(--stellar-nav-text-strong);
+}
+
+html[data-theme="dark"] .link:hover {
+  background: rgba(247, 244, 238, 0.05);
+  color: var(--stellar-nav-text-strong);
+}
+
+html[data-theme="dark"] .linkActive {
+  background: rgba(253, 218, 36, 0.14);
+  color: var(--stellar-yellow);
+}
+
+@media (max-width: 996px) {
+  .sidebar {
+    display: none;
+  }
+}
