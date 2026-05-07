@@ -458,6 +458,12 @@ const ai: NavbarItem = {
   position: "left",
 };
 
+const github: NavbarItem = {
+  href: "https://github.com/stellar",
+  label: "Github",
+  position: "left",
+};
+
 const learnLink: NavbarItem = {
   href: "https://stellar.org/learn",
   label: "Academy",
@@ -480,6 +486,7 @@ export default {
   stellar,
   docs,
   ai,
+  github,
   learnLink,
   funding,
   community,

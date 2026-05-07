@@ -185,6 +185,7 @@ const config: Config = {
       items: [
         navbarItems.docs,
         navbarItems.learnLink,
+        navbarItems.github,
         navbarItems.ai,
         navbarItems.funding,
         navbarItems.community,

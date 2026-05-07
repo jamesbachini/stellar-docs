@@ -59,25 +59,25 @@ const DeveloperResourcesBoxes: DeveloperResourcesItem[] = [
   },
   {
     title: translate({
-      message: "Developer Tools",
+      message: "SDF Video Content",
       id: "component.Homepage.DeveloperResources.Tools.Title",
     }),
-    icon: "toolbox",
+    icon: "video",
     description: (
       <Translate
         id="component.Homepage.DeveloperResources.Tools.Description"
-        description="Description for the developer tools resource card."
+        description="Description for the SDF video content resource card."
       >
-        Discover IDEs, explorers, analytics services, wallets, and other tools
-        used across the ecosystem.
+        Watch the latest interviews, tutorials, and live streams from the
+        Stellar Development Foundation.
       </Translate>
     ),
     linkLabel: (
       <Translate id="component.Homepage.DeveloperResources.Tools.Link">
-        Browse tools
+        Watch videos
       </Translate>
     ),
-    link: "/docs/tools/developer-tools",
+    link: "https://www.youtube.com/@StellarDevelopmentFoundation",
   },
 ];
 

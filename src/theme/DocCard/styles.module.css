@@ -1,0 +1,94 @@
+.cardContainer {
+  --ifm-link-color: var(--stellar-ink);
+  --ifm-link-hover-color: var(--stellar-ink);
+  --ifm-link-hover-decoration: none;
+
+  display: flex;
+  min-height: 10.5rem;
+  height: 100%;
+  flex-direction: column;
+  border: 1px solid var(--stellar-card-border);
+  border-radius: 8px;
+  padding: 1.15rem;
+  background: var(--stellar-card-bg);
+  box-shadow: var(--stellar-card-shadow);
+  color: var(--stellar-ink);
+  text-decoration: none;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.cardContainer:hover {
+  border-color: var(--stellar-card-border-hover);
+  box-shadow: var(--stellar-card-shadow-hover);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.cardContainer:focus-visible {
+  outline: 2px solid var(--stellar-yellow);
+  outline-offset: 3px;
+}
+
+.cardHeader {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: 0.85rem;
+  align-items: center;
+  min-height: 3rem;
+}
+
+.cardIcon {
+  display: inline-flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(11, 11, 12, 0.08);
+  border-radius: 8px;
+  background: var(--stellar-icon-bg);
+  color: var(--stellar-icon-fg);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.cardTitle {
+  margin: 0;
+  color: var(--stellar-ink);
+  font-family: var(--ifm-heading-font-family);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.cardRule {
+  width: 100%;
+  margin: 1rem 0 0.85rem;
+  border: 0;
+  border-top: 1px solid var(--global-border-color);
+}
+
+.cardDescription {
+  margin: 0;
+  color: var(--stellar-muted-text-strong);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+html[data-theme="dark"] .cardIcon {
+  border-color: rgba(247, 244, 238, 0.12);
+}
+
+@media (max-width: 640px) {
+  .cardContainer {
+    min-height: 0;
+  }
+}

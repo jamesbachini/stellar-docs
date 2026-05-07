@@ -84,9 +84,9 @@
   -webkit-mask-image: url("https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/regular/newspaper.svg");
 }
 
-.icon[data-icon="toolbox"]::before {
-  mask-image: url("https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/regular/toolbox.svg");
-  -webkit-mask-image: url("https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/regular/toolbox.svg");
+.icon[data-icon="video"]::before {
+  mask-image: url("https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/regular/circle-play.svg");
+  -webkit-mask-image: url("https://d3gk2c5xim1je2.cloudfront.net/v7.1.0/regular/circle-play.svg");
 }
 
 .DeveloperResourcesFeature h3 {
