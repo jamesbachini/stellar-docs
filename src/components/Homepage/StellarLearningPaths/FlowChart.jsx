@@ -39,8 +39,8 @@ const trackNodes = {
     {
       id: "contract-smart",
       data: {
-        label: "Stellar Smart Contracts",
-        description: "Core concepts and overview of Soroban smart contracts.",
+        label: "Smart Contracts",
+        description: "Core concepts and overview of Stellar smart contracts.",
         url: "https://developers.stellar.org/docs/learn/fundamentals/contract-development",
         variant: "root",
       },
@@ -71,7 +71,7 @@ const trackNodes = {
         description: "Review a minimal Soroban contract example.",
         url: "https://github.com/stellar/soroban-examples/blob/main/hello_world/src/lib.rs",
       },
-      position: { x: 600, y: -220 },
+      position: { x: 600, y: -200 },
     },
     {
       id: "contract-examples",
@@ -98,7 +98,7 @@ const trackNodes = {
         description: "Guide for EVM devs moving to Stellar.",
         url: "https://developers.stellar.org/docs/learn/migrate/evm",
       },
-      position: { x: 520, y: 40 },
+      position: { x: 520, y: 0 },
     },
     {
       id: "contract-tools",
@@ -134,7 +134,7 @@ const trackNodes = {
         description: "Audit-ready contract libraries for Stellar.",
         url: "https://developers.stellar.org/docs/tools/openzeppelin-contracts",
       },
-      position: { x: 600, y: 380 },
+      position: { x: 600, y: 360 },
     },
     {
       id: "contract-scaffold",
@@ -143,15 +143,15 @@ const trackNodes = {
         description: "Scaffold a full Soroban project quickly.",
         url: "https://developers.stellar.org/docs/tools/scaffold-stellar",
       },
-      position: { x: 520, y: 480 },
+      position: { x: 520, y: 500 },
     },
   ],
   frontend: [
     {
       id: "frontend-dapps",
       data: {
-        label: "Decentralized Applications",
-        description: "Overview of building Stellar dApps.",
+        label: "dApps",
+        description: "Overview of building decentralized applications.",
         url: "https://developers.stellar.org/docs/build/apps",
         variant: "root",
       },
@@ -160,7 +160,7 @@ const trackNodes = {
     {
       id: "frontend-guides",
       data: {
-        label: "Build dApps Guides",
+        label: "Builders Guides",
         description: "Guides focused on dApp UX and flows.",
         url: "https://developers.stellar.org/docs/build/apps",
       },
@@ -262,11 +262,11 @@ const trackNodes = {
     {
       id: "biz-sdf",
       data: {
-        label: "Stellar Development Foundation",
-        description: "About SDF and its mission.",
+        label: "SDF",
+        description: "About the Stellar Development Foundation.",
         url: "https://stellar.org/foundation",
       },
-      position: { x: 260, y: -140 },
+      position: { x: 260, y: -240 },
     },
     {
       id: "biz-case",
@@ -307,8 +307,8 @@ const trackNodes = {
     {
       id: "biz-community-fund",
       data: {
-        label: "Stellar Community Fund",
-        description: "Apply for community grant rounds.",
+        label: "SCF",
+        description: "Learn more about the Stellar Community Fund",
         url: "https://communityfund.stellar.org/",
       },
       position: { x: 400, y: -60 },
@@ -372,7 +372,7 @@ const trackNodes = {
     {
       id: "enterprise-hub",
       data: {
-        label: "Enterprise & Institutions",
+        label: "Enterprise",
         description: "Resources for large-scale Stellar adoption.",
         url: "https://stellar.org/enterprise-fund",
         variant: "root",

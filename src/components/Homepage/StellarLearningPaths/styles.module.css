@@ -146,7 +146,6 @@ html[data-theme="dark"] .learningPaths {
   height: 100%;
   border-radius: 12px;
   background: var(--chart-canvas);
-  box-shadow: var(--chart-card-shadow);
   overflow: hidden;
   position: relative;
 }
