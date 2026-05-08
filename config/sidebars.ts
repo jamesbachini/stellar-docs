@@ -101,9 +101,16 @@ const sidebars: SidebarsConfig = {
           dirName: "build/apps/guestbook",
         },
         "build/apps/dapp-frontend",
-        "build/apps/privacy",
-        "build/apps/zk",
       ],
+    },
+    {
+      type: "category",
+      label: "Privacy on Stellar",
+      link: {
+        type: "doc",
+        id: "build/apps/privacy",
+      },
+      items: ["build/apps/zk"],
     },
     {
       type: "doc",

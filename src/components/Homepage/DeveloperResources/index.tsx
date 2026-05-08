@@ -1,6 +1,7 @@
 import React, { type ReactNode } from "react";
+import Link from "@docusaurus/Link";
+import Heading from "@theme/Heading";
 import Translate, { translate } from "@docusaurus/Translate";
-import Card from "@site/src/components/ui/Card";
 import styles from "./styles.module.css";
 
 type DeveloperResourcesItem = {
@@ -9,6 +10,7 @@ type DeveloperResourcesItem = {
   linkLabel: ReactNode;
   link: string;
   icon: string;
+  host: string;
 };
 
 const DeveloperResourcesBoxes: DeveloperResourcesItem[] = [
@@ -18,6 +20,7 @@ const DeveloperResourcesBoxes: DeveloperResourcesItem[] = [
       id: "component.Homepage.DeveloperResources.Discord.Title",
     }),
     icon: "message",
+    host: "discord.gg",
     description: (
       <Translate
         id="component.Homepage.DeveloperResources.Discord.Description"
@@ -40,6 +43,7 @@ const DeveloperResourcesBoxes: DeveloperResourcesItem[] = [
       id: "component.Homepage.DeveloperResources.Blog.Title",
     }),
     icon: "newspaper",
+    host: "stellar.org",
     description: (
       <Translate
         id="component.Homepage.DeveloperResources.Blog.Description"
@@ -62,6 +66,7 @@ const DeveloperResourcesBoxes: DeveloperResourcesItem[] = [
       id: "component.Homepage.DeveloperResources.Tools.Title",
     }),
     icon: "video",
+    host: "youtube.com",
     description: (
       <Translate
         id="component.Homepage.DeveloperResources.Tools.Description"
@@ -80,24 +85,34 @@ const DeveloperResourcesBoxes: DeveloperResourcesItem[] = [
   },
 ];
 
-function DeveloperResourcesFeature({
+function ResourceTile({
   title,
   description,
   link,
   linkLabel,
   icon,
+  host,
 }: DeveloperResourcesItem) {
   return (
-    <Card
-      href={link}
-      variant="resource"
-      title={title}
-      description={description}
-      cta={linkLabel}
-      icon={
-        <span className={styles.icon} data-icon={icon} aria-hidden="true" />
-      }
-    />
+    <Link to={link} className={styles.resourceTile}>
+      <span
+        className={styles.resourceIcon}
+        data-icon={icon}
+        aria-hidden="true"
+      />
+      <div className={styles.resourceBody}>
+        <div className={styles.resourceHeader}>
+          <Heading as="h3" className={styles.resourceTitle}>
+            {title}
+          </Heading>
+          <span className={styles.resourceHost} aria-hidden="true">
+            {host}
+          </span>
+        </div>
+        <p className={styles.resourceDescription}>{description}</p>
+        <span className={styles.resourceCta}>{linkLabel}</span>
+      </div>
+    </Link>
   );
 }
 
@@ -105,7 +120,7 @@ export default function DeveloperResources() {
   return (
     <section className={styles.resourcesGrid}>
       {DeveloperResourcesBoxes.map((props) => (
-        <DeveloperResourcesFeature key={props.title} {...props} />
+        <ResourceTile key={props.title} {...props} />
       ))}
     </section>
   );

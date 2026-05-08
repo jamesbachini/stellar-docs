@@ -1,0 +1,223 @@
+.appsIndex {
+  margin-bottom: 4rem;
+}
+
+.hero {
+  max-width: 50rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem 0 2.25rem;
+  border-bottom: 1px solid var(--global-border-color);
+}
+
+.eyebrow {
+  margin: 0 0 0.65rem;
+  color: var(--stellar-muted-text);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.25rem, 6vw, 4.25rem);
+  line-height: 1;
+}
+
+.hero p:last-child {
+  margin: 1rem 0 0;
+  color: var(--stellar-muted-text-strong);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.featured,
+.grid,
+.relatedGrid {
+  display: grid;
+  gap: 1rem;
+}
+
+.featured {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 2.75rem;
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.sectionHeader h2,
+.related h2 {
+  margin: 0;
+  font-size: 1.45rem;
+}
+
+.sectionHeader span {
+  color: var(--stellar-muted-text);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.card,
+.compactCard {
+  display: flex;
+  min-width: 0;
+  height: 100%;
+  flex-direction: column;
+  border: 1px solid var(--stellar-card-border);
+  border-radius: 8px;
+  background: var(--stellar-card-bg);
+  color: var(--ifm-color-content);
+  text-decoration: none;
+  box-shadow: var(--stellar-card-shadow);
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+}
+
+.card {
+  min-height: 15rem;
+  padding: 1.2rem;
+}
+
+.compactCard {
+  min-height: 12rem;
+  padding: 1rem;
+}
+
+.card:hover,
+.compactCard:hover {
+  border-color: var(--stellar-card-border-hover);
+  color: var(--ifm-color-content);
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: var(--stellar-card-shadow-hover);
+}
+
+.card:focus-visible,
+.compactCard:focus-visible {
+  outline: 2px solid var(--stellar-yellow);
+  outline-offset: 3px;
+}
+
+:global(.markdown) .card,
+:global(.markdown) .card:hover,
+:global(.markdown) .card:focus,
+:global(.markdown) .card:active,
+:global(.markdown) .card:visited,
+:global(.markdown) .compactCard,
+:global(.markdown) .compactCard:hover,
+:global(.markdown) .compactCard:focus,
+:global(.markdown) .compactCard:active,
+:global(.markdown) .compactCard:visited {
+  text-decoration: none !important;
+  text-decoration-color: transparent !important;
+}
+
+.cardMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1.15rem;
+  color: var(--stellar-muted-text);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.card h3,
+.compactCard h3 {
+  margin: 0 0 0.65rem;
+  color: var(--stellar-ink);
+  font-size: 1.24rem;
+  line-height: 1.22;
+}
+
+.card p,
+.compactCard p {
+  flex: 1;
+  margin: 0 0 1.25rem;
+  color: var(--stellar-muted-text-strong);
+  font-size: 0.93rem;
+  line-height: 1.55;
+}
+
+.cardCta {
+  color: var(--stellar-ink);
+  font-size: 0.84rem;
+  font-weight: 500;
+}
+
+.cardCta::after {
+  content: " ->";
+}
+
+html[data-theme="dark"] .cardCta {
+  color: var(--stellar-yellow);
+}
+
+.related {
+  display: grid;
+  grid-template-columns: 13rem minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--global-border-color);
+}
+
+.relatedGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 996px) {
+  .featured,
+  .grid,
+  .related,
+  .relatedGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 1rem;
+  }
+
+  .sectionHeader {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .card,
+  .compactCard {
+    min-height: 0;
+  }
+}

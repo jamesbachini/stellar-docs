@@ -125,7 +125,6 @@
 
 html[data-theme="dark"] {
   color-scheme: dark;
-
   --stellar-yellow: #fdda24;
   --stellar-yellow-soft: rgba(253, 218, 36, 0.14);
   --stellar-ink: #f7f4ee;
@@ -725,43 +724,47 @@ html[data-theme="dark"] .pagination-nav__link:hover {
   --ifm-button-color: var(--stellar-cream);
   --ifm-button-border-color: var(--stellar-yellow);
   --ifm-button-background-color: var(--stellar-yellow);
-
   border-color: var(--stellar-yellow);
   background: var(--stellar-yellow);
   color: var(--stellar-cream);
 }
 
+html[data-theme="dark"] .button--primary {
+  color: var(--stellar-cream);
+}
+
 .button--primary:hover {
+  --ifm-button-color: var(--stellar-cream);
   border-color: var(--stellar-cream);
   background: var(--stellar-ink);
-  color: var(--stellar-cream);
+  color: var(--stellar-yellow);
   transform: translateY(-1px);
   box-shadow: 0 12px 28px -16px rgba(11, 11, 12, 0.4);
 }
 
 .button--secondary {
   --ifm-button-color: var(--stellar-ink);
-
   border-color: var(--stellar-ink);
   background: transparent;
-  color: var(--stellar-ink);
+  color: var(--stellar-yellow);
 }
 
 html[data-theme="dark"] .button--secondary {
   --ifm-button-color: var(--stellar-ink);
-
   border-color: var(--stellar-ink-soft);
-  color: var(--stellar-ink);
+  color: var(--stellar-cream);
 }
 
 .button--secondary:hover {
+  --ifm-button-color: var(--stellar-paper);
   border-color: var(--stellar-ink);
   background: var(--stellar-ink);
-  color: var(--stellar-paper);
+  color: var(--stellar-yellow);
   transform: translateY(-1px);
 }
 
 html[data-theme="dark"] .button--secondary:hover {
+  --ifm-button-color: #0b0b0c;
   background: var(--stellar-yellow);
   border-color: var(--stellar-yellow);
   color: var(--stellar-ink);

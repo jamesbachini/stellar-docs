@@ -18,7 +18,8 @@ import styles from "./styles.module.css";
 type DocCardItem = PropSidebarItemCategory | PropSidebarItemLink;
 
 function getTitle(item: DocCardItem): string {
-  const extracted = extractLeadingEmoji(item.label);
+  const label = item.label.replace(/^\d+\.\s*/, "");
+  const extracted = extractLeadingEmoji(label);
   return extracted.rest.trim();
 }
 
@@ -79,7 +80,6 @@ function CardLayout({
       )}
     >
       <div className={styles.cardHeader}>
-        <span className={styles.cardIcon} aria-hidden="true" />
         <h2
           className={clsx(
             ThemeClassNames.docs.docCard.heading,
@@ -89,7 +89,9 @@ function CardLayout({
         >
           {title}
         </h2>
+        {meta ? <span className={styles.cardMeta}>{meta}</span> : null}
       </div>
+      <span className={styles.cardRule} aria-hidden="true" />
       {description && (
         <p
           className={clsx(
@@ -101,7 +103,6 @@ function CardLayout({
           {description}
         </p>
       )}
-      {meta ? <span className={styles.cardMeta}>{meta}</span> : null}
     </Link>
   );
 }

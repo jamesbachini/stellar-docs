@@ -31,15 +31,16 @@ const build: NavbarItem = {
       className: "has-nested-items",
     },
     {
-      type: "html",
-      value:
-        '<hr><a href="/docs/build/apps" class="subtitle"><small>Build Applications</small>',
-      className: "subtitle",
+      to: "/docs/build/apps",
+      label: "Build Applications",
+      activeBaseRegex:
+        "docs/build/apps($|/(overview|application-design-considerations|wallet|example-application-tutorial|swift-payment-app|ingest-sdk|guestbook|dapp-frontend)(/.*)?$)",
+      className: "has-nested-items",
     },
     {
       to: "/docs/build/apps/privacy",
       label: "Privacy on Stellar",
-      activeBasePath: "docs/build/apps/privacy",
+      activeBaseRegex: "docs/build/apps/(privacy|zk)",
     },
     {
       type: "html",

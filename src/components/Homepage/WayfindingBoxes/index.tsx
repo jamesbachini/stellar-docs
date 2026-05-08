@@ -1,6 +1,7 @@
 import React, { type ReactNode } from "react";
+import Link from "@docusaurus/Link";
+import Heading from "@theme/Heading";
 import Translate, { translate } from "@docusaurus/Translate";
-import Card from "@site/src/components/ui/Card";
 import styles from "./styles.module.css";
 
 type WayfindingItem = {
@@ -99,31 +100,44 @@ const WayfindingWays: WayfindingItem[] = [
   },
 ];
 
-function WayfindingFeature({
+function PathCard({
   title,
   description,
   link,
   linkLabel,
   icon,
-}: WayfindingItem) {
+  index,
+}: WayfindingItem & { index: number }) {
+  const stepNumber = String(index + 1).padStart(2, "0");
   return (
-    <Card
-      href={link}
-      title={title}
-      description={description}
-      cta={linkLabel}
-      icon={
-        <span className={styles.icon} data-icon={icon} aria-hidden="true" />
-      }
-    />
+    <Link to={link} className={styles.pathCard}>
+      <span className={styles.pathAccent} aria-hidden="true" />
+      <div className={styles.pathHeader}>
+        <span className={styles.pathStep} aria-hidden="true">
+          Path {stepNumber}
+        </span>
+        <span
+          className={styles.pathIcon}
+          data-icon={icon}
+          aria-hidden="true"
+        />
+      </div>
+      <div className={styles.pathBody}>
+        <Heading as="h3" className={styles.pathTitle}>
+          {title}
+        </Heading>
+        <p className={styles.pathDescription}>{description}</p>
+        <span className={styles.pathCta}>{linkLabel}</span>
+      </div>
+    </Link>
   );
 }
 
 export default function WayfindingBoxes() {
   return (
     <section className={styles.pathGrid}>
-      {WayfindingWays.map((props) => (
-        <WayfindingFeature key={props.title} {...props} />
+      {WayfindingWays.map((props, index) => (
+        <PathCard key={props.title} index={index} {...props} />
       ))}
     </section>
   );

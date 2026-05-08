@@ -62,7 +62,7 @@ const trackNodes = {
         description: "Fund a testnet account to experiment safely.",
         url: "https://lab.stellar.org/account/fund",
       },
-      position: { x: 520, y: -320 },
+      position: { x: 520, y: -350 },
     },
     {
       id: "contract-hello",
@@ -71,7 +71,7 @@ const trackNodes = {
         description: "Review a minimal Soroban contract example.",
         url: "https://github.com/stellar/soroban-examples/blob/main/hello_world/src/lib.rs",
       },
-      position: { x: 600, y: -200 },
+      position: { x: 600, y: -240 },
     },
     {
       id: "contract-examples",
@@ -80,7 +80,7 @@ const trackNodes = {
         description: "Browse additional Soroban reference contracts.",
         url: "https://github.com/stellar/soroban-examples",
       },
-      position: { x: 600, y: -100 },
+      position: { x: 600, y: -120 },
     },
     {
       id: "contract-guides",
@@ -134,7 +134,7 @@ const trackNodes = {
         description: "Audit-ready contract libraries for Stellar.",
         url: "https://developers.stellar.org/docs/tools/openzeppelin-contracts",
       },
-      position: { x: 600, y: 360 },
+      position: { x: 600, y: 390 },
     },
     {
       id: "contract-scaffold",
