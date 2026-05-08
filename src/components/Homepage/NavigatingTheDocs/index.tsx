@@ -1,5 +1,6 @@
 import React, { type ReactNode } from "react";
 import Translate, { translate } from "@docusaurus/Translate";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import Card from "@site/src/components/ui/Card";
 import styles from "./styles.module.css";
 
@@ -92,6 +93,8 @@ function NavigatingDocsFeature({
   cta,
   link,
 }: NavigatingDocsItem) {
+  const imageUrl = useBaseUrl(image);
+
   return (
     <Card
       href={link}
@@ -100,7 +103,12 @@ function NavigatingDocsFeature({
       description={description}
       cta={cta}
       icon={
-        <img src={image} alt="" className={styles.cardImage} loading="lazy" />
+        <img
+          src={imageUrl}
+          alt=""
+          className={styles.cardImage}
+          loading="lazy"
+        />
       }
     />
   );

@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import Link from "@docusaurus/Link";
 import styles from "./styles.module.css";
 
 const useIsomorphicLayoutEffect =
@@ -327,7 +328,7 @@ const trackNodes = {
       data: {
         label: "Technology",
         description: "Understand the core technology stack.",
-        url: "https://developers.stellar.org/docs/learn/fundamental",
+        url: "https://developers.stellar.org/docs/learn/fundamentals",
       },
       position: { x: 360, y: 240 },
     },
@@ -1032,18 +1033,20 @@ export default function StellarFlowChart({ track }) {
                 };
 
                 if (node.data.url) {
+                  const resolvedUrl = resolveUrl(node.data.url);
+                  const externalUrl = isExternalUrl(resolvedUrl);
+
                   return (
-                    <a
+                    <Link
                       key={node.id}
                       {...sharedProps}
-                      href={resolveUrl(node.data.url)}
+                      href={externalUrl ? resolvedUrl : undefined}
+                      to={externalUrl ? undefined : resolvedUrl}
                       target={
-                        isExternalUrl(resolveUrl(node.data.url))
-                          ? "_blank"
-                          : undefined
+                        externalUrl ? "_blank" : undefined
                       }
                       rel={
-                        isExternalUrl(resolveUrl(node.data.url))
+                        externalUrl
                           ? "noopener noreferrer"
                           : undefined
                       }
@@ -1056,7 +1059,7 @@ export default function StellarFlowChart({ track }) {
                           {node.data.description}
                         </div>
                       ) : null}
-                    </a>
+                    </Link>
                   );
                 }
 

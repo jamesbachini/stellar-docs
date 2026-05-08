@@ -1,4 +1,5 @@
 import React, { type ReactNode } from "react";
+import Link from "@docusaurus/Link";
 import clsx from "clsx";
 import DocCardList from "@theme-original/DocCardList";
 import type DocCardListType from "@theme/DocCardList";
@@ -51,9 +52,9 @@ function ExampleContractsDocCardList(props: CustomDocCardListProps): ReactNode {
           item.description = item.description ?? doc?.description;
           return (
             <p className="col col--12" key={item.href}>
-              <a href={item.href}>
+              <Link to={item.href}>
                 <strong>{item.label}</strong>
-              </a>{" "}
+              </Link>{" "}
               - {item.description}
             </p>
           );
@@ -79,7 +80,7 @@ function GuidesDocCardList(props: CustomDocCardListProps): ReactNode {
                 .filter((item) => item.type === "link")
                 .map((item) => (
                   <p className="margin-bottom--sm" key={item.href}>
-                    <a href={item.href}>{item.label}</a>
+                    <Link to={item.href}>{item.label}</Link>
                   </p>
                 ))}
             </section>

@@ -69,9 +69,12 @@ function CardLayout({
   description?: string;
   meta?: string;
 }): ReactNode {
+  const isInternal = isInternalUrl(href);
+
   return (
     <Link
-      href={href}
+      href={isInternal ? undefined : href}
+      to={isInternal ? href : undefined}
       className={clsx(
         "card",
         ThemeClassNames.docs.docCard.container,

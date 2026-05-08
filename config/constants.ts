@@ -1,4 +1,20 @@
 export const DEFAULT_LOCALE: string = 'en';
+export const SITE_URL: string =
+  process.env.DOCUSAURUS_SITE_URL ?? "https://developers.stellar.org";
+export const SITE_BASE_URL: string =
+  process.env.DOCUSAURUS_BASE_URL ?? "/";
+
+export function withSiteBaseUrl(path: string): string {
+  if (/^(https?:)?\/\//.test(path) || path.startsWith('#')) {
+    return path;
+  }
+
+  const base = SITE_BASE_URL.endsWith('/') ? SITE_BASE_URL : `${SITE_BASE_URL}/`;
+  const relativePath = path.startsWith('/') ? path.slice(1) : path;
+
+  return `${base}${relativePath}`;
+}
+
 export const LOCALE_FULL_CODE: Record<string, string> = {
   es: 'es-ES',
 };

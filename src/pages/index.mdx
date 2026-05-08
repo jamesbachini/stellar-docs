@@ -8,10 +8,14 @@ import WayfindingBoxes from "@site/src/components/Homepage/WayfindingBoxes";
 import NavigatingTheDocs from "@site/src/components/Homepage/NavigatingTheDocs";
 import DeveloperResources from "@site/src/components/Homepage/DeveloperResources";
 import LearningQuickStart from "@site/src/components/Homepage/LearningQuickStart";
+import Link from "@docusaurus/Link";
 
 <div className="homeIntro">
   <h1>Stellar Developer Documentation</h1>
-  <p>Welcome to the dev docs, choose a track below or find what you are looking for using the left menu or search option</p>
+  <p>
+    Welcome to the dev docs, choose a track below or find what you are looking
+    for using the left menu or search option
+  </p>
 </div>
 
 <LearningQuickStart />
@@ -36,17 +40,14 @@ Get help, stay current, and connect with the broader Stellar developer ecosystem
     }
   </p>
   <div className="homeHero__actions">
-    <a
+    <Link
       className="button button--primary"
-      href="/docs/build/smart-contracts/getting-started"
+      to="/docs/build/smart-contracts/getting-started"
     >
       Open Quickstart
-    </a>
-    <a
-      className="button button--secondary"
-      href="/docs/tools"
-    >
+    </Link>
+    <Link className="button button--secondary" to="/docs/tools">
       Dev Tools
-    </a>
+    </Link>
   </div>
 </section>

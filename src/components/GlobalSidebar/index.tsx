@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import Link from '@docusaurus/Link';
 import { useLocation } from '@docusaurus/router';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import navbarItems from '@site/config/theme/navbar';
 import styles from './styles.module.css';
 
@@ -101,11 +102,30 @@ function pathsMatch(first?: string, second?: string) {
   return first.replace(/\/$/, '') === second.replace(/\/$/, '');
 }
 
+function stripBaseUrl(pathname: string, baseUrl: string) {
+  const normalizedBaseUrl = baseUrl.replace(/\/$/, '');
+
+  if (!normalizedBaseUrl || normalizedBaseUrl === '/') {
+    return pathname;
+  }
+
+  if (pathname === normalizedBaseUrl) {
+    return '/';
+  }
+
+  return pathname.startsWith(`${normalizedBaseUrl}/`)
+    ? pathname.slice(normalizedBaseUrl.length)
+    : pathname;
+}
+
 export default function GlobalSidebar() {
   const { pathname } = useLocation();
+  const baseUrl = useBaseUrl('/');
+  const currentPathname = stripBaseUrl(pathname, baseUrl);
   const activeSection = useMemo(() => {
-    return sections.find((section) => isActive(pathname, section.to))?.key;
-  }, [pathname]);
+    return sections.find((section) => isActive(currentPathname, section.to))
+      ?.key;
+  }, [currentPathname]);
   const [openSection, setOpenSection] = useState(activeSection ?? '');
 
   return (
@@ -143,7 +163,8 @@ export default function GlobalSidebar() {
                   <Link
                     className={[
                       styles.link,
-                      pathsMatch(pathname, section.to) && styles.linkActive,
+                      pathsMatch(currentPathname, section.to) &&
+                        styles.linkActive,
                     ]
                       .filter(Boolean)
                       .join(' ')}
@@ -168,7 +189,8 @@ export default function GlobalSidebar() {
                     const external = /^https?:\/\//.test(resolved.to);
                     const linkClassName = [
                       styles.link,
-                      isActive(pathname, resolved.to) && styles.linkActive,
+                      isActive(currentPathname, resolved.to) &&
+                        styles.linkActive,
                     ]
                       .filter(Boolean)
                       .join(' ');

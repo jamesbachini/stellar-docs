@@ -3,6 +3,7 @@ import rehypeKatex from "rehype-katex";
 import { themes as prismThemes } from "prism-react-renderer";
 
 // import { makeEditUrl, DEFAULT_LOCALE, GOOGLE_TRANSLATE_ELEMENT } from './config/constants';
+import { SITE_BASE_URL, SITE_URL } from "./config/constants";
 import navbarItems from "./config/theme/navbar";
 import footerColumns from "./config/theme/footer";
 import { headTags } from "./config/theme/headTags";
@@ -20,8 +21,8 @@ const config: Config = {
   title: "Stellar Docs",
   tagline:
     "Stellar is a self-serve distributed ledger that you can use as a backend to power all kinds of apps and services",
-  url: "https://developers.stellar.org",
-  baseUrl: "/", // /misc/stellar-docs-concept/
+  url: SITE_URL,
+  baseUrl: SITE_BASE_URL,
   trailingSlash: false,
   onBrokenAnchors: "ignore",
   onBrokenLinks: "throw",

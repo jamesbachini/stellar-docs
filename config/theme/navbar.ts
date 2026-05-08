@@ -1,5 +1,5 @@
 import type { NavbarItem } from "@docusaurus/theme-common";
-import { GOOGLE_TRANSLATE_ELEMENT } from "../constants";
+import { GOOGLE_TRANSLATE_ELEMENT, withSiteBaseUrl } from "../constants";
 
 const build: NavbarItem = {
   type: "dropdown",
@@ -21,7 +21,7 @@ const build: NavbarItem = {
     {
       type: "html",
       value:
-        '<hr><a href="/docs/build/smart-contracts" class="subtitle"><small>Build Smart Contracts</small>',
+        `<hr><a href="${withSiteBaseUrl("/docs/build/smart-contracts")}" class="subtitle"><small>Build Smart Contracts</small>`,
       className: "subtitle",
     },
     {
@@ -45,7 +45,7 @@ const build: NavbarItem = {
     {
       type: "html",
       value:
-        '<hr><a href="/docs/build/agentic-payments" class="subtitle"><small>Agentic Payments</small>',
+        `<hr><a href="${withSiteBaseUrl("/docs/build/agentic-payments")}" class="subtitle"><small>Agentic Payments</small>`,
       className: "subtitle",
     },
     {
@@ -61,7 +61,7 @@ const build: NavbarItem = {
     {
       type: "html",
       value:
-        '<hr><a href="/docs/build/security-docs" class="dropdown__link has-nested-items">Security Best Practices</a>',
+        `<hr><a href="${withSiteBaseUrl("/docs/build/security-docs")}" class="dropdown__link has-nested-items">Security Best Practices</a>`,
     },
   ],
 };
@@ -76,7 +76,7 @@ const learn: NavbarItem = {
     {
       type: "html",
       value:
-        '<hr><a href="/docs/learn/fundamentals" class="subtitle"><small>Core Concepts</small>',
+        `<hr><a href="${withSiteBaseUrl("/docs/learn/fundamentals")}" class="subtitle"><small>Core Concepts</small>`,
       className: "subtitle",
     },
     {
@@ -142,7 +142,7 @@ const learn: NavbarItem = {
     {
       type: "html",
       value:
-        '<hr><a href="/docs/learn/glossary" class="dropdown__link">Glossary</a>',
+        `<hr><a href="${withSiteBaseUrl("/docs/learn/glossary")}" class="dropdown__link">Glossary</a>`,
     },
     {
       to: "docs/learn/migrate",
@@ -214,7 +214,7 @@ const data: NavbarItem = {
     {
       type: "html",
       value:
-        '<hr><a href="/docs/data/analytics" class="subtitle"><small>Analytics</small>',
+        `<hr><a href="${withSiteBaseUrl("/docs/data/analytics")}" class="subtitle"><small>Analytics</small>`,
       className: "subtitle",
     },
     {
@@ -230,7 +230,7 @@ const data: NavbarItem = {
     {
       type: "html",
       value:
-        '<hr><a href="/docs/data/apis" class="subtitle"><small>API</small>',
+        `<hr><a href="${withSiteBaseUrl("/docs/data/apis")}" class="subtitle"><small>API</small>`,
       className: "subtitle",
     },
     {
@@ -261,7 +261,7 @@ const data: NavbarItem = {
     {
       type: "html",
       value:
-        '<hr><a href="/docs/data/indexers" class="subtitle"><small>Indexers</small>',
+        `<hr><a href="${withSiteBaseUrl("/docs/data/indexers")}" class="subtitle"><small>Indexers</small>`,
       className: "subtitle",
     },
     {
@@ -272,7 +272,7 @@ const data: NavbarItem = {
     {
       type: "html",
       value:
-        '<hr><a href="/docs/data/oracles" class="subtitle"><small>Oracles</small>',
+        `<hr><a href="${withSiteBaseUrl("/docs/data/oracles")}" class="subtitle"><small>Oracles</small>`,
       className: "subtitle",
     },
     {
