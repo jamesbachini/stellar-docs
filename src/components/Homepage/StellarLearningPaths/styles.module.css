@@ -46,10 +46,6 @@ html[data-theme="dark"] .learningPaths {
 }
 
 .trackPanel {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 0.85rem;
-  align-items: center;
   min-width: 0;
 }
 
@@ -66,49 +62,50 @@ html[data-theme="dark"] .learningPaths {
   font-weight: 600;
 }
 
-.trackButtons {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.5rem;
+.trackScroll {
   min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.trackButtons {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.25rem;
+  min-width: 0;
+  border-bottom: 1px solid var(--chart-rule);
 }
 
 .trackButton {
-  display: grid;
-  grid-template-columns: 2rem 1fr;
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
-  gap: 0.75rem;
-  width: 100%;
-  min-height: 3rem;
-  padding: 0.75rem;
-  border: 1px solid var(--chart-rule);
-  border-radius: 10px;
-  background: var(--chart-surface);
-  color: var(--chart-muted-strong);
+  min-height: 3.125rem;
+  padding: 0.75rem 1.5rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--chart-muted);
   cursor: pointer;
-  font: inherit;
+  font-family: Lora, var(--ifm-heading-font-family);
+  font-size: 1.05rem;
   font-weight: 500;
-  text-align: left;
+  text-align: center;
   transition:
-    background 0.18s ease,
-    border-color 0.18s ease,
     color 0.18s ease,
-    transform 0.18s ease;
+    text-decoration-color 0.18s ease;
 }
 
 .trackButton:hover {
-  border-color: var(--chart-rule-hover);
   color: var(--chart-ink);
-  transform: translateY(-1px);
 }
 
 .trackButton:active {
-  border-color: var(--chart-rule-hover);
-  background: var(--chart-surface);
+  color: var(--chart-ink);
 }
 
 .trackButton:focus {
-  border-color: var(--chart-rule-hover);
   outline: none;
 }
 
@@ -118,40 +115,29 @@ html[data-theme="dark"] .learningPaths {
 }
 
 .trackButton.active {
-  border-color: var(--chart-rule);
-  background: var(--chart-active-surface);
   color: var(--chart-ink);
-}
-
-.icon {
-  display: grid;
-  width: 2rem;
-  height: 2rem;
-  place-items: center;
-  border-radius: 8px;
-  background: var(--chart-icon-bg);
-  transition: background 0.18s ease;
-}
-
-.trackButton.active .icon {
-  background: var(--chart-yellow);
-}
-
-.icon svg {
-  width: 1.1rem;
-  height: 1.1rem;
+  font-weight: 600;
+  text-decoration-thickness: 2px;
 }
 
 .label {
   min-width: 0;
-  font-family: var(--ifm-heading-font-family);
   line-height: 1.25;
+  white-space: nowrap;
 }
 
 .flow-wrapper {
   width: 100%;
   min-width: 0;
   height: clamp(380px, calc(58vh - 80px), 520px);
+}
+
+.flowLazyMount {
+  min-width: 0;
+}
+
+.flowPlaceholder {
+  content-visibility: hidden;
 }
 
 .flow-card {
@@ -230,23 +216,17 @@ html[data-theme="dark"] .learningPaths {
 }
 
 .flow-edge {
-  fill: currentColor;
-}
-
-.flow-edge-glow {
-  opacity: 0.06;
-  filter: blur(14px);
-}
-
-.flow-edge-core {
-  opacity: 0.22;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5px;
+  transition: stroke 0.18s ease;
 }
 
 .flow-node {
   position: absolute;
-  width: 220px;
-  padding: 14px 16px;
-  border-radius: 16px;
+  width: 250px;
+  padding: 12px 14px;
+  border-radius: 10px;
   background: var(--chart-node);
   border: 1px solid var(--chart-rule);
   color: var(--chart-ink);
@@ -299,41 +279,32 @@ html[data-theme="dark"] .learningPaths {
 }
 
 .node-title {
-  font-size: 1.2rem;
-  line-height: 1.4;
+  font-family: Lora, var(--ifm-heading-font-family);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .node-hint {
-  margin-top: 8px;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--chart-muted);
+  margin-top: 6px;
+  color: var(--chart-muted-strong);
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.45;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 html[data-theme="dark"] .learningPaths .trackButton {
-  border-color: var(--chart-rule);
-  background: var(--chart-surface);
-  color: var(--chart-muted-strong);
+  color: var(--chart-muted);
 }
 
 html[data-theme="dark"] .learningPaths .trackButton:hover {
-  border-color: var(--chart-rule-hover);
   color: var(--chart-ink);
 }
 
 html[data-theme="dark"] .learningPaths .trackButton.active {
-  border-color: var(--chart-rule);
-  background: var(--chart-active-surface);
   color: var(--chart-ink);
-}
-
-html[data-theme="dark"] .learningPaths .icon {
-  background: var(--chart-icon-bg);
-}
-
-html[data-theme="dark"] .learningPaths .trackButton.active .icon {
-  background: var(--chart-yellow);
 }
 
 html[data-theme="dark"] .flow-card::before {
@@ -349,12 +320,8 @@ html[data-theme="dark"] .flow-card .flow-canvas.stacked {
     margin: 1.75rem 0 3rem;
   }
 
-  .trackPanel {
-    grid-template-columns: 1fr;
-  }
-
   .trackButtons {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-width: max-content;
   }
 
   .panelHeader {

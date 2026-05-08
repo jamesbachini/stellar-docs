@@ -1,7 +1,6 @@
 import React, { type ReactNode } from "react";
-import Heading from "@theme/Heading";
-import Link from "@docusaurus/Link";
 import Translate, { translate } from "@docusaurus/Translate";
+import Card from "@site/src/components/ui/Card";
 import styles from "./styles.module.css";
 
 type DeveloperResourcesItem = {
@@ -89,12 +88,16 @@ function DeveloperResourcesFeature({
   icon,
 }: DeveloperResourcesItem) {
   return (
-    <Link to={link} className={styles.DeveloperResourcesFeature}>
-      <span className={styles.icon} data-icon={icon} aria-hidden="true" />
-      <Heading as="h3">{title}</Heading>
-      <p>{description}</p>
-      <span className={styles.resourceLink}>{linkLabel}</span>
-    </Link>
+    <Card
+      href={link}
+      variant="resource"
+      title={title}
+      description={description}
+      cta={linkLabel}
+      icon={
+        <span className={styles.icon} data-icon={icon} aria-hidden="true" />
+      }
+    />
   );
 }
 

@@ -1,7 +1,6 @@
 import React, { type ReactNode } from "react";
-import Heading from "@theme/Heading";
-import Link from "@docusaurus/Link";
 import Translate, { translate } from "@docusaurus/Translate";
+import Card from "@site/src/components/ui/Card";
 import styles from "./styles.module.css";
 
 export type NavigatingDocsItem = {
@@ -94,14 +93,16 @@ function NavigatingDocsFeature({
   link,
 }: NavigatingDocsItem) {
   return (
-    <Link to={link} className={styles.NavigatingDocsFeature}>
-      <img src={image} alt="" className={styles.cardImage} loading="lazy" />
-      <div className={styles.cardBody}>
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-        <span className={styles.docLink}>{cta}</span>
-      </div>
-    </Link>
+    <Card
+      href={link}
+      variant="feature"
+      title={title}
+      description={description}
+      cta={cta}
+      icon={
+        <img src={image} alt="" className={styles.cardImage} loading="lazy" />
+      }
+    />
   );
 }
 

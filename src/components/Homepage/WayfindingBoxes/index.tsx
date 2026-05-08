@@ -1,7 +1,6 @@
 import React, { type ReactNode } from "react";
-import Heading from "@theme/Heading";
-import Link from "@docusaurus/Link";
 import Translate, { translate } from "@docusaurus/Translate";
+import Card from "@site/src/components/ui/Card";
 import styles from "./styles.module.css";
 
 type WayfindingItem = {
@@ -108,12 +107,15 @@ function WayfindingFeature({
   icon,
 }: WayfindingItem) {
   return (
-    <Link to={link} className={styles.pathCard}>
-      <span className={styles.icon} data-icon={icon} aria-hidden="true" />
-      <Heading as="h3">{title}</Heading>
-      <p>{description}</p>
-      <span className={styles.cardLink}>{linkLabel}</span>
-    </Link>
+    <Card
+      href={link}
+      title={title}
+      description={description}
+      cta={linkLabel}
+      icon={
+        <span className={styles.icon} data-icon={icon} aria-hidden="true" />
+      }
+    />
   );
 }
 
